@@ -3,17 +3,9 @@ import sys
 sys.path.insert(1, './input/')
 import input
 
-expense = input.getDay1Input()
+expenses = input.getDay1Input()
 
-def convert(value):
-	if isinstance(value, list): return value
-	res = value.split("+")
-	return list(map(int, res))
-
-def reportRepair(expense, count=3, total=2020):
-	# Turn string to array
-	expenses = convert(expense)
-
+def reportRepair(expenses, count=3, total=2020):
 	needs = list()
 	res = list()
 	# Get array of value needed for total
@@ -31,6 +23,6 @@ def reportRepair(expense, count=3, total=2020):
 
 	return res
 
-value = reportRepair(expense, 2)
+value = reportRepair(expenses, 2)
 value = numpy.prod(value)
 print value
