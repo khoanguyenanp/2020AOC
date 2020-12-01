@@ -13,7 +13,7 @@ def reportRepair(expenses, count=3, total=2020):
 		needs.append(total-value)
 
 		if(count > 2):
-			need_values = reportRepair(expense, count-1, total-value)
+			need_values = reportRepair(expenses, count-1, total-value)
 			if need_values: 
 				need_values.append(value)
 				res = need_values
@@ -23,6 +23,6 @@ def reportRepair(expenses, count=3, total=2020):
 
 	return res
 
-value = reportRepair(expenses, 2)
+value = reportRepair(expenses, 3)
 value = numpy.prod(value)
 print value
