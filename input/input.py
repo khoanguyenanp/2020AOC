@@ -26,3 +26,12 @@ def getDay2Input():
 	with open('./input/day2_input.txt', 'r') as f:
 		lines = f.read().splitlines()
 	return list(map(transformDay2Input, lines))
+
+# DAY 3
+def transformDay3Input(value):
+	return value
+	
+def getDay3Input():
+	with open('./input/day3_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+	return list(map(transformDay3Input, lines))
