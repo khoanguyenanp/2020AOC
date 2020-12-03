@@ -26,7 +26,7 @@ def countTree(geo_map, slope):
 		cur_long += slope[1]
 		if(cur_lat >= width):
 			geo_map = reMap(geo_map)
-			width = width = len(geo_map[0])
+			width = len(geo_map[0])
 		if(cur_long < height and geo_map[cur_long][cur_lat] == "#"): count += 1
 
 	return count
