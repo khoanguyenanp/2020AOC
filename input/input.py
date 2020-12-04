@@ -28,10 +28,29 @@ def getDay2Input():
 	return list(map(transformDay2Input, lines))
 
 # DAY 3
-def transformDay3Input(value):
-	return value
-	
 def getDay3Input():
 	with open('./input/day3_input.txt', 'r') as f:
 		lines = f.read().splitlines()
-	return list(map(transformDay3Input, lines))
+	return list(lines)
+
+# DAY 4
+def getDay4Input():
+	with open('./input/day4_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+		lines.append('')
+	res=[]
+	passport={'fields':[]}
+	for data in lines:
+		if(data == ''):
+			res.append(passport)
+			passport={'fields':[]}
+			continue
+		else:
+			fields = data.split(' ')
+			for field in fields:
+				info = field.split(':')
+				passport[info[0]] = info[1]
+				passport['fields'].append(info[0])
+	return res
+			
+			
