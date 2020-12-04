@@ -25,13 +25,11 @@ def isValidHgt(hgt):
 	if (rule[0] <= hgt <= rule[1]): return True
 	return False
 	
-def isValidHcl(hcl):
-	if not hcl[0] == '#': return False
-	if not len(hcl) == 7: return False
-	hcl = hcl.replace('#','')
-	ok = "0123456789abcdef"
-	if not (all(c in ok for c in hcl)): return False
-	return True
+def isValidHexaCode(str):
+	p = re.compile("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$")
+	if(str == None): return False
+	if(re.search(p, str)): return True
+	else: return False
 
 def getValidPassportCount(bactch, strict=False):
 	valid = 0
@@ -42,7 +40,7 @@ def getValidPassportCount(bactch, strict=False):
 			if not (iyr[0] <= int(passport['iyr']) <= iyr[1]): continue
 			if not (eyr[0] <= int(passport['eyr']) <= eyr[1]): continue
 			if not isValidHgt(passport['hgt']): continue
-			if not isValidHcl(passport['hcl']): continue
+			if not isValidHexaCode(passport['hcl']): continue
 			if not (len(passport['pid']) == 9 and passport['pid'].isdigit()): continue
 			if not passport['ecl'] in ecl: continue
 			valid += 1
