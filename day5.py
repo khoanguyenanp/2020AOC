@@ -1,4 +1,3 @@
-import numpy
 import sys
 sys.path.insert(1, './input/')
 import input

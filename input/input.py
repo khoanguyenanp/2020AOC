@@ -58,3 +58,20 @@ def getDay5Input():
 	with open('./input/day5_input.txt', 'r') as f:
 		lines = f.read().splitlines()
 	return list(lines)
+
+# DAY 6
+def getDay6Input():
+	with open('./input/day6_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+		lines.append('')
+	res=[]
+	group=[]
+	for data in lines:
+		if(data == ''):
+			if(len(group)>0): res.append(group)
+			group=[]
+		else:
+			group.append(data)
+	return res
+
+	
