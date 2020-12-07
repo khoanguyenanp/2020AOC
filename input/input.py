@@ -52,5 +52,9 @@ def getDay4Input():
 				passport[info[0]] = info[1]
 				passport['fields'].append(info[0])
 	return res
-			
-			
+
+# DAY 5
+def getDay5Input():	
+	with open('./input/day5_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+	return list(lines)
