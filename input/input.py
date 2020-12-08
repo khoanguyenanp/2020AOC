@@ -105,3 +105,20 @@ def getDay7Input():
 		res[bag_name] = bag
 
 	return res
+
+# Day 8 
+def getDay8Input():
+	with open('./input/day8_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+	res = []
+	for line in lines:
+		instruction = {}
+		line = line.split(' ')
+		instruction = {
+			'action': line[0],
+			'op': line[1][0],
+			'value': int(line[1].replace('+', '').replace('-','')),
+			'execute': 0
+		}
+		res.append(instruction)
+	return res
