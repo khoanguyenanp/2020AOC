@@ -2,11 +2,6 @@ import sys
 sys.path.insert(1, './input/')
 import input
 
-ops = {
-		'+': lambda x, y: x + y,
-		'-': lambda x, y: x - y
-	}
-
 def getAccBeforeRepeat(data):
 	acc = 0
 
@@ -15,16 +10,15 @@ def getAccBeforeRepeat(data):
 		if data[i]['execute'] > 0:
 			i = -1
 		else:
-			op = data[i]['op']
 			value = data[i]['value']
 			data[i]['execute'] += 1
 			if(data[i]['action'] == 'nop'):
-				i +=1
+				i += 1
 			elif(data[i]['action'] == 'acc'):
-				acc = ops[op](acc, value)
-				i +=1
+				acc += value
+				i += 1
 			elif(data[i]['action'] == 'jmp'):
-				i = ops[op](i, value)
+				i += value
 	return acc
 
 def isValidInstruction(data):
@@ -34,13 +28,12 @@ def isValidInstruction(data):
 		if data[i]['execute'] > 0:
 			i = -1
 		else:
-			op = data[i]['op']
 			value = data[i]['value']
 			data[i]['execute'] += 1
 			if(data[i]['action'] == 'nop' or data[i]['action'] == 'acc'):
 				i += 1
 			elif(data[i]['action'] == 'jmp'):
-				i = ops[op](i, value)
+				i += value
 			else:
 				i += 1
 	if(i == len(data)): valid = True

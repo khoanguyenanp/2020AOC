@@ -116,8 +116,7 @@ def getDay8Input():
 		line = line.split(' ')
 		instruction = {
 			'action': line[0],
-			'op': line[1][0],
-			'value': int(line[1].replace('+', '').replace('-','')),
+			'value': int(line[1]),
 			'execute': 0
 		}
 		res.append(instruction)
