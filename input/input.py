@@ -74,4 +74,34 @@ def getDay6Input():
 			group.append(data)
 	return res
 
-	
+# Day 7
+def getDay7Input():
+	with open('./input/day7_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+	res={}
+	bag={}
+	for data in lines:
+		bag = {}
+		data = data.split('contain')
+		bag_name = data[0].replace('bags', '').strip()
+		bag = {
+			'color': bag_name,
+			'contains': [],
+			'details': {}
+		}
+		contains = data[1].split(',')
+		for contain in contains:
+			if (contain.strip().replace('.','') == 'no other bags'):
+				pass
+			else:
+				contain = contain.replace('bags.','').replace('bags','').replace('bag.', '').replace('bag','').strip()
+				contain = contain.split(' ')
+				count = contain[0]
+				contain.remove(count)
+				bag_color = ' '.join([str(elem) for elem in contain])
+				bag['contains'].append(bag_color)
+				bag['details'][bag_color] = count
+		
+		res[bag_name] = bag
+
+	return res
