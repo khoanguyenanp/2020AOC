@@ -74,7 +74,7 @@ def getDay6Input():
 			group.append(data)
 	return res
 
-# Day 7
+# DAY 7
 def getDay7Input():
 	with open('./input/day7_input.txt', 'r') as f:
 		lines = f.read().splitlines()
@@ -106,7 +106,7 @@ def getDay7Input():
 
 	return res
 
-# Day 8 
+# DAY 8 
 def getDay8Input():
 	with open('./input/day8_input.txt', 'r') as f:
 		lines = f.read().splitlines()
@@ -121,3 +121,9 @@ def getDay8Input():
 		}
 		res.append(instruction)
 	return res
+
+# DAY 9
+def getDay9Input():
+	with open('./input/day9_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+	return list(map(int, lines))
