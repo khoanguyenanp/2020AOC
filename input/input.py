@@ -127,3 +127,13 @@ def getDay9Input():
 	with open('./input/day9_input.txt', 'r') as f:
 		lines = f.read().splitlines()
 	return list(map(int, lines))
+
+# DAY 10
+def getDay10Input():
+	with open('./input/day10_input.txt', 'r') as f:
+		lines = f.read().splitlines()
+	res = list(map(int, lines))
+	res = sorted(res)
+	res.insert(0,0),
+	res.append(res[-1]+3)
+	return res
